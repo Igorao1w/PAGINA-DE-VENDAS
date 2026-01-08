@@ -6,31 +6,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const options = { day: 'numeric', month: 'long', year: 'numeric' };
     dateElement.textContent = today.toLocaleDateString('pt-BR', options);
 
-    // Smooth Scroll
+    // Smooth Scroll with passive listener
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }, { passive: false });
     });
 
-    // Fade In Animation on Scroll
+    // Fade In Animation on Scroll - Optimized with requestAnimationFrame
     const observerOptions = {
-        threshold: 0.1
+        threshold: 0.1,
+        rootMargin: '50px'
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                requestAnimationFrame(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                });
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.feature-card, .pricing-card, .bonus-card').forEach(el => {
+    document.querySelectorAll('.feature-card, .pricing-card-new, .bonus-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'all 0.6s ease-out';
@@ -55,12 +63,16 @@ document.addEventListener('DOMContentLoaded', () => {
         nameEl.textContent = randomName;
         planEl.textContent = planName;
 
-        // Show
-        notification.classList.add('show');
+        // Show with requestAnimationFrame
+        requestAnimationFrame(() => {
+            notification.classList.add('show');
+        });
 
         // Hide after 4s
         setTimeout(() => {
-            notification.classList.remove('show');
+            requestAnimationFrame(() => {
+                notification.classList.remove('show');
+            });
         }, 4000);
 
         // Schedule next

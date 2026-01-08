@@ -84,6 +84,8 @@ a {
     transform: rotateX(60deg) scale(2);
     opacity: 0.3;
     animation: gridMove 20s linear infinite;
+    will-change: transform;
+    contain: layout style paint;
 }
 
 @keyframes gridMove {
@@ -194,6 +196,7 @@ a {
     font-weight: 900;
     font-family: var(--font-heading);
     font-size: 1.2rem;
+    will-change: transform;
 }
 
 .marquee-content span {
@@ -273,6 +276,7 @@ a {
     background: conic-gradient(from 0deg, transparent 0%, rgba(0, 243, 255, 0.1) 20%, rgba(0, 243, 255, 0.8) 40%, transparent 40%);
     animation: radarSpin 2s linear infinite;
     border-right: 1px solid rgba(0, 243, 255, 0.8);
+    will-change: transform;
 }
 
 .radar-blip {
@@ -287,6 +291,7 @@ a {
     animation: blipPulse 2s infinite;
     opacity: 0;
     z-index: 2;
+    will-change: opacity, transform;
 }
 
 @keyframes radarSpin {
@@ -419,7 +424,10 @@ a {
 .guarantee-icon {
     width: 80px;
     height: 80px;
+    min-width: 80px;
+    min-height: 80px;
     color: var(--secondary);
+    flex-shrink: 0;
 }
 
 /* FAQ */
@@ -597,6 +605,7 @@ details p {
     font-family: var(--font-heading);
     box-shadow: 0 5px 20px rgba(0, 230, 255, 0.5);
     animation: pulse-badge 2s infinite;
+    will-change: box-shadow;
 }
 
 @keyframes pulse-badge {
