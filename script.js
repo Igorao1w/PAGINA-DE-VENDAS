@@ -71,4 +71,67 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start after 5s
     setTimeout(showNotification, 5000);
 
+
+    // ==========================================
+    // LAZY LOAD OPTIMIZATIONS (Performance)
+    // ==========================================
+
+    let scriptsLoaded = false;
+
+    // A. Tracking Scripts (Pixel/UTMify) - Load on interaction or delay
+    const loadTrackingScripts = () => {
+        if (window.trackingLoaded) return;
+        window.trackingLoaded = true;
+
+        console.log("Loading Tracking Scripts...");
+
+        // 1. UTMify Pixel
+        window.pixelId = "695ef196d30bc70cf22a3d27";
+        const scriptPixel = document.createElement("script");
+        scriptPixel.async = true;
+        scriptPixel.defer = true;
+        scriptPixel.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+        document.head.appendChild(scriptPixel);
+
+        // 2. UTMify Main/Facebook Injection
+        const scriptUtmify = document.createElement("script");
+        scriptUtmify.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
+        scriptUtmify.async = true;
+        scriptUtmify.defer = true;
+        scriptUtmify.setAttribute('data-utmify-prevent-xcod-sck', '');
+        scriptUtmify.setAttribute('data-utmify-prevent-subids', '');
+        document.head.appendChild(scriptUtmify);
+    };
+
+    // Trigger for tracking: User interaction or 3.5s delay
+    const initialInteractionEvents = ['mousemove', 'touchstart', 'scroll', 'click'];
+    const triggerTracking = () => {
+        loadTrackingScripts();
+        initialInteractionEvents.forEach(e => window.removeEventListener(e, triggerTracking));
+    };
+
+    initialInteractionEvents.forEach(e => window.addEventListener(e, triggerTracking, { passive: true, once: true }));
+    setTimeout(triggerTracking, 3500); // Fallback
+
+
+    // B. Wistia Script - Load ONLY when video is near viewport
+    const wistiaObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                console.log("Loading Wistia Script...");
+                const scriptWistia = document.createElement('script');
+                scriptWistia.src = "https://fast.wistia.net/assets/external/E-v1.js";
+                scriptWistia.async = true;
+                document.body.appendChild(scriptWistia);
+
+                wistiaObserver.disconnect(); // Load once
+            }
+        });
+    }, { rootMargin: '200px' }); // Load when video is 200px away
+
+    const videoWrapper = document.querySelector('.single-video-wrapper');
+    if (videoWrapper) {
+        wistiaObserver.observe(videoWrapper);
+    }
+
 });
