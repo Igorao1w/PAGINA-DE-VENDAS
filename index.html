@@ -36,21 +36,13 @@
             --text-muted: #a0a0a0;
             --gradient-main: linear-gradient(90deg, #00f3ff 0%, #0066ff 100%);
             --font-heading: 'Rajdhani', sans-serif;
-            --font-body: 'Outfit', sans-serif;
+            --font-body: 'Outfit', sans-serif
         }
 
-        /* Otimização de Imagens no CSS */
-        .hero-bg-overlay {
-            /* Background Simplificado para Mobile */
-            background-image: linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
-        }
-
-        /* ... Rest of CSS inline ... */
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box
         }
 
         body {
@@ -58,7 +50,7 @@
             color: var(--text-main);
             font-family: var(--font-body);
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.6
         }
 
         h1,
@@ -66,18 +58,18 @@
         h3 {
             font-family: var(--font-heading);
             text-transform: uppercase;
-            line-height: 1.1;
+            line-height: 1.1
         }
 
         a {
             text-decoration: none;
-            color: inherit;
+            color: inherit
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 20px
         }
 
         .urgency-bar {
@@ -88,6 +80,10 @@
             font-weight: 700;
             font-size: 0.9rem;
             text-transform: uppercase;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center
         }
 
         .hero {
@@ -100,6 +96,7 @@
             text-align: center;
             background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
             overflow: hidden;
+            contain: content
         }
 
         .hero-bg-overlay {
@@ -108,29 +105,30 @@
             left: 0;
             width: 100%;
             height: 100%;
+            background-image: linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             perspective: 1000px;
             transform: rotateX(60deg) scale(2);
             opacity: 0.3;
             animation: gridMove 20s linear infinite;
             will-change: transform;
-            contain: layout style paint;
+            contain: layout style paint
         }
 
         @keyframes gridMove {
             0% {
-                transform: rotateX(60deg) scale(2) translateY(0);
+                transform: rotateX(60deg) scale(2) translateY(0)
             }
 
             100% {
-                transform: rotateX(60deg) scale(2) translateY(50px);
+                transform: rotateX(60deg) scale(2) translateY(50px)
             }
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 800px
         }
 
         .badge {
@@ -143,33 +141,34 @@
             font-weight: 700;
             margin-bottom: 20px;
             letter-spacing: 2px;
-            box-shadow: 0 0 10px var(--primary-dim);
+            box-shadow: 0 0 10px var(--primary-dim)
         }
 
         .hero h1 {
             font-size: 4rem;
             font-weight: 700;
             margin-bottom: 20px;
+            min-height: 1.1em
         }
 
         .text-gradient {
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            background-clip: text
         }
 
         .hero-sub {
             font-size: 1.2rem;
             color: var(--text-muted);
-            margin-bottom: 40px;
+            margin-bottom: 40px
         }
 
         .hero-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
-            flex-wrap: wrap;
+            flex-wrap: wrap
         }
 
         .btn {
@@ -180,31 +179,31 @@
             transition: all 0.3s ease;
             cursor: pointer;
             font-family: var(--font-heading);
-            letter-spacing: 1px;
+            letter-spacing: 1px
         }
 
         .btn-primary {
             background: var(--primary);
             color: #000;
             border: none;
-            box-shadow: 0 0 20px var(--primary-dim);
+            box-shadow: 0 0 20px var(--primary-dim)
         }
 
         .btn-primary:hover {
             background: #fff;
             box-shadow: 0 0 30px var(--primary);
-            transform: translateY(-2px);
+            transform: translateY(-2px)
         }
 
         .btn-outline {
             background: transparent;
             border: 1px solid var(--text-muted);
-            color: var(--text-main);
+            color: var(--text-main)
         }
 
         .btn-outline:hover {
             border-color: var(--primary);
-            color: var(--primary);
+            color: var(--primary)
         }
 
         .marquee-container {
@@ -216,6 +215,9 @@
             transform: rotate(-1deg) scale(1.02);
             border-top: 2px solid #fff;
             border-bottom: 2px solid #fff;
+            height: 50px;
+            display: flex;
+            align-items: center
         }
 
         .marquee-content {
@@ -224,56 +226,56 @@
             font-weight: 900;
             font-family: var(--font-heading);
             font-size: 1.2rem;
-            will-change: transform;
+            will-change: transform
         }
 
         .marquee-content span {
-            margin: 0 20px;
+            margin: 0 20px
         }
 
         @keyframes marquee {
             0% {
-                transform: translateX(0);
+                transform: translateX(0)
             }
 
             100% {
-                transform: translateX(-50%);
+                transform: translateX(-50%)
             }
         }
 
         .section {
-            padding: 80px 0;
+            padding: 80px 0
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 50px;
+            margin-bottom: 50px
         }
 
         .highlight {
-            color: var(--secondary);
+            color: var(--secondary)
         }
 
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
-            align-items: center;
+            align-items: center
         }
 
         .problem-list {
             list-style: none;
-            margin: 30px 0;
+            margin: 30px 0
         }
 
         .problem-list li {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 10px;
             margin-bottom: 15px;
             font-size: 1.1rem;
-            color: #ff4d4d;
+            color: #ff4d4d
         }
 
         .radar-scan {
@@ -285,7 +287,7 @@
             margin: 0 auto;
             background: linear-gradient(90deg, transparent 49%, rgba(0, 243, 255, 0.1) 50%, transparent 51%), linear-gradient(transparent 49%, rgba(0, 243, 255, 0.1) 50%, transparent 51%), radial-gradient(circle, rgba(0, 243, 255, 0.05) 0%, transparent 70%);
             box-shadow: 0 0 30px var(--primary-dim), inset 0 0 20px rgba(0, 243, 255, 0.1);
-            overflow: hidden;
+            overflow: hidden
         }
 
         .radar-scan::after {
@@ -299,7 +301,7 @@
             background: conic-gradient(from 0deg, transparent 0%, rgba(0, 243, 255, 0.1) 20%, rgba(0, 243, 255, 0.8) 40%, transparent 40%);
             animation: radarSpin 2s linear infinite;
             border-right: 1px solid rgba(0, 243, 255, 0.8);
-            will-change: transform;
+            will-change: transform
         }
 
         .radar-blip {
@@ -314,48 +316,48 @@
             animation: blipPulse 2s infinite;
             opacity: 0;
             z-index: 2;
-            will-change: opacity, transform;
+            will-change: opacity, transform
         }
 
         @keyframes radarSpin {
             0% {
-                transform: rotate(0deg);
+                transform: rotate(0deg)
             }
 
             100% {
-                transform: rotate(360deg);
+                transform: rotate(360deg)
             }
         }
 
         @keyframes blipPulse {
             0% {
                 opacity: 0;
-                transform: scale(0.5);
+                transform: scale(0.5)
             }
 
             35% {
-                opacity: 0;
+                opacity: 0
             }
 
             40% {
                 opacity: 1;
-                transform: scale(1.5);
+                transform: scale(1.5)
             }
 
             100% {
                 opacity: 0;
-                transform: scale(1);
+                transform: scale(1)
             }
         }
 
         .solution-section {
-            background: #0a0a0a;
+            background: #0a0a0a
         }
 
         .center-text {
             text-align: center;
             max-width: 700px;
-            margin: 0 auto 60px;
+            margin: 0 auto 60px
         }
 
         .badge-blue {
@@ -363,13 +365,13 @@
             font-weight: 700;
             letter-spacing: 2px;
             margin-bottom: 10px;
-            display: block;
+            display: block
         }
 
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 30px
         }
 
         .feature-card {
@@ -377,34 +379,34 @@
             padding: 30px;
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
+            transition: all 0.3s ease
         }
 
         .feature-card:hover {
             border-color: var(--primary);
             transform: translateY(-10px);
-            background: rgba(0, 243, 255, 0.05);
+            background: rgba(0, 243, 255, 0.05)
         }
 
         .feature-card svg {
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 20px
         }
 
         .feature-card h3 {
             margin-bottom: 15px;
-            font-size: 1.3rem;
+            font-size: 1.3rem
         }
 
         .feature-card p {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.95rem
         }
 
         .bonus-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 30px
         }
 
         .bonus-card {
@@ -413,7 +415,7 @@
             border-radius: 15px;
             border: 1px solid #222;
             position: relative;
-            overflow: hidden;
+            overflow: hidden
         }
 
         .bonus-tag {
@@ -424,7 +426,7 @@
             font-weight: 700;
             font-size: 0.8rem;
             border-radius: 3px;
-            margin-bottom: 15px;
+            margin-bottom: 15px
         }
 
         .guarantee-box {
@@ -436,7 +438,7 @@
             align-items: center;
             gap: 30px;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto
         }
 
         .guarantee-icon {
@@ -445,12 +447,12 @@
             min-width: 80px;
             min-height: 80px;
             color: var(--secondary);
-            flex-shrink: 0;
+            flex-shrink: 0
         }
 
         .faq-grid {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto
         }
 
         details {
@@ -459,18 +461,18 @@
             padding: 20px;
             border-radius: 10px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s
         }
 
         details[open] {
-            background: #161616;
+            background: #161616
         }
 
         summary {
             font-weight: 700;
             list-style: none;
             position: relative;
-            padding-right: 30px;
+            padding-right: 30px
         }
 
         summary::after {
@@ -478,22 +480,22 @@
             position: absolute;
             right: 0;
             font-size: 1.5rem;
-            line-height: 1;
+            line-height: 1
         }
 
         details[open] summary::after {
-            content: '-';
+            content: '-'
         }
 
         details p {
             border-top: 1px solid #222;
-            color: var(--text-muted);
+            color: var(--text-muted)
         }
 
         .disclaimer {
             font-size: 0.8rem;
             margin-top: 10px;
-            opacity: 0.5;
+            opacity: 0.5
         }
 
         .notification-toast {
@@ -512,47 +514,47 @@
             z-index: 1000;
             transform: translateX(-150%);
             transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            max-width: 350px;
+            max-width: 350px
         }
 
         .notification-toast.show {
-            transform: translateX(0);
+            transform: translateX(0)
         }
 
         .notification-icon {
             color: var(--primary);
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: center
         }
 
         .notification-content {
             display: flex;
             flex-direction: column;
             font-size: 0.9rem;
-            line-height: 1.3;
+            line-height: 1.3
         }
 
         .notify-name {
             font-weight: 700;
-            color: #fff;
+            color: #fff
         }
 
         .notify-action {
             color: var(--text-muted);
-            font-size: 0.8rem;
+            font-size: 0.8rem
         }
 
         .notify-plan {
             color: var(--primary);
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: 0.85rem
         }
 
         .pricing-section-new {
             background: radial-gradient(circle at center, #0a0a0a 0%, #000000 100%);
-            padding: 100px 0;
+            padding: 100px 0
         }
 
         .pricing-grid-new {
@@ -560,7 +562,7 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             max-width: 1000px;
-            margin: 0 auto;
+            margin: 0 auto
         }
 
         .pricing-card-new {
@@ -571,31 +573,31 @@
             display: flex;
             flex-direction: column;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid transparent;
+            border: 2px solid transparent
         }
 
         .basic-plan {
             background: #1A1A1A;
-            border: 2px solid #333;
+            border: 2px solid #333
         }
 
         .basic-plan:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
-            border-color: #555;
+            border-color: #555
         }
 
         .premium-plan {
             background: linear-gradient(145deg, #00E6FF15, #00CFFF10);
             border: 3px solid #00E6FF;
             box-shadow: 0 0 40px rgba(0, 230, 255, 0.3);
-            transform: scale(1.05);
+            transform: scale(1.05)
         }
 
         .premium-plan:hover {
             transform: scale(1.08) translateY(-8px);
             box-shadow: 0 15px 60px rgba(0, 230, 255, 0.5);
-            border-color: #00FFFF;
+            border-color: #00FFFF
         }
 
         .best-seller-badge {
@@ -614,18 +616,18 @@
             font-family: var(--font-heading);
             box-shadow: 0 5px 20px rgba(0, 230, 255, 0.5);
             animation: pulse-badge 2s infinite;
-            will-change: box-shadow;
+            will-change: box-shadow
         }
 
         @keyframes pulse-badge {
 
             0%,
             100% {
-                box-shadow: 0 5px 20px rgba(0, 230, 255, 0.5);
+                box-shadow: 0 5px 20px rgba(0, 230, 255, 0.5)
             }
 
             50% {
-                box-shadow: 0 5px 30px rgba(0, 230, 255, 0.8);
+                box-shadow: 0 5px 30px rgba(0, 230, 255, 0.8)
             }
         }
 
@@ -635,36 +637,36 @@
             text-transform: uppercase;
             margin-bottom: 8px;
             font-family: var(--font-heading);
-            letter-spacing: 1px;
+            letter-spacing: 1px
         }
 
         .basic-plan .plan-title {
-            color: #fff;
+            color: #fff
         }
 
         .premium-plan .plan-title {
             background: linear-gradient(135deg, #00E6FF, #00FFFF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            background-clip: text
         }
 
         .plan-subtitle {
             color: #999;
             font-size: 1rem;
             margin-bottom: 30px;
-            font-weight: 400;
+            font-weight: 400
         }
 
         .premium-plan .plan-subtitle {
             color: #00E6FF;
-            font-weight: 600;
+            font-weight: 600
         }
 
         .plan-features {
             list-style: none;
             margin: 30px 0;
-            flex-grow: 1;
+            flex-grow: 1
         }
 
         .plan-features li {
@@ -674,17 +676,17 @@
             margin-bottom: 18px;
             font-size: 1.05rem;
             line-height: 1.5;
-            color: #e0e0e0;
+            color: #e0e0e0
         }
 
         .plan-features li.bonus-item {
             margin-top: 10px;
             padding-top: 15px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1)
         }
 
         .premium-plan .plan-features li.bonus-item {
-            border-top-color: rgba(0, 230, 255, 0.3);
+            border-top-color: rgba(0, 230, 255, 0.3)
         }
 
         .check-icon {
@@ -699,18 +701,18 @@
             border-radius: 50%;
             font-size: 0.85rem;
             font-weight: 900;
-            flex-shrink: 0;
+            flex-shrink: 0
         }
 
         .premium-plan .check-icon {
             background: linear-gradient(135deg, #00E6FF, #00CFFF);
             color: #000;
-            box-shadow: 0 0 10px rgba(0, 230, 255, 0.5);
+            box-shadow: 0 0 10px rgba(0, 230, 255, 0.5)
         }
 
         .plan-price {
             text-align: center;
-            margin: 30px 0 25px;
+            margin: 30px 0 25px
         }
 
         .price-old {
@@ -720,7 +722,7 @@
             font-size: 1rem;
             margin-bottom: 8px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1px
         }
 
         .price-new {
@@ -729,18 +731,18 @@
             font-weight: 900;
             font-family: var(--font-heading);
             line-height: 1;
-            letter-spacing: -2px;
+            letter-spacing: -2px
         }
 
         .basic-plan .price-new {
-            color: #fff;
+            color: #fff
         }
 
         .premium-plan .price-new {
             background: linear-gradient(135deg, #00E6FF, #00FFFF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            background-clip: text
         }
 
         .btn-plan {
@@ -756,47 +758,47 @@
             font-family: var(--font-heading);
             transition: all 0.3s ease;
             cursor: pointer;
-            text-decoration: none;
+            text-decoration: none
         }
 
         .btn-basic {
             background: transparent;
             border: 2px solid #fff;
-            color: #fff;
+            color: #fff
         }
 
         .btn-basic:hover {
             background: #fff;
             color: #000;
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3)
         }
 
         .btn-premium {
             background: linear-gradient(135deg, #00E6FF, #00CFFF);
             color: #000;
             border: none;
-            box-shadow: 0 10px 30px rgba(0, 230, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 230, 255, 0.4)
         }
 
         .btn-premium:hover {
             background: linear-gradient(135deg, #00FFFF, #00E6FF);
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 230, 255, 0.6);
+            box-shadow: 0 15px 40px rgba(0, 230, 255, 0.6)
         }
 
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.5rem
             }
 
             .grid-2 {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr
             }
 
             .guarantee-box {
                 flex-direction: column;
-                text-align: center;
+                text-align: center
             }
 
             .notification-toast {
@@ -804,35 +806,72 @@
                 bottom: 10px;
                 right: 10px;
                 max-width: none;
-                width: auto;
+                width: auto
             }
 
             .pricing-grid-new {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 30px
             }
 
             .premium-plan {
-                transform: scale(1);
+                transform: scale(1)
             }
 
             .premium-plan:hover {
-                transform: scale(1.02) translateY(-5px);
+                transform: scale(1.02) translateY(-5px)
             }
 
             .plan-title {
-                font-size: 1.8rem;
+                font-size: 1.8rem
             }
 
             .price-new {
-                font-size: 3rem;
+                font-size: 3rem
             }
 
             .pricing-card-new {
-                padding: 35px 25px;
+                padding: 35px 25px
             }
         }
     </style>
+    <!-- Tracking Lazy Loader (Hybrid: Timeout + User Interaction) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let loaded = false;
+
+            function loadTracking() {
+                if (loaded) return;
+                loaded = true;
+
+                // Pixel
+                window.pixelId = "695ef196d30bc70cf22a3d27";
+                var a = document.createElement("script");
+                a.setAttribute("async", "");
+                a.setAttribute("defer", "");
+                a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+                document.head.appendChild(a);
+
+                // UTMify
+                var b = document.createElement("script");
+                b.setAttribute("async", "");
+                b.setAttribute("defer", "");
+                b.setAttribute("data-utmify-prevent-xcod-sck", "");
+                b.setAttribute("data-utmify-prevent-subids", "");
+                b.setAttribute("src", "https://cdn.utmify.com.br/scripts/utms/latest.js");
+                document.head.appendChild(b);
+            }
+
+            // Carrega após 3.5s automaticamente (para garantir tracking sem interação)
+            setTimeout(loadTracking, 3500);
+
+            // GATILHO DE SEGURANÇA: Carrega instantaneamente se o usuário interagir
+            // Isso garante que se ele clicar rápido, o pixel já estará lá.
+            ['click', 'scroll', 'touchstart', 'mousemove'].forEach(event => {
+                window.addEventListener(event, loadTracking, { once: true, passive: true });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -1155,17 +1194,7 @@
     </div>
 
     <!-- Tracking Scripts - Loaded at the end for better performance -->
-    <script>
-        window.pixelId = "695ef196d30bc70cf22a3d27";
-        var a = document.createElement("script");
-        a.setAttribute("async", "");
-        a.setAttribute("defer", "");
-        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-        document.head.appendChild(a);
-    </script>
-    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck
-        data-utmify-prevent-subids async defer></script>
-
+    <!-- Custom Logic --> <!-- -->
     <script src="script.js" defer></script>
 </body>
 
